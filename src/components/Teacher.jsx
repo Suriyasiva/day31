@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Teacher() {
+  let navigate = useNavigate();
   const [data, setData] = useState([]);
   let fetchData = async () => {
     try {
@@ -34,6 +35,14 @@ function Teacher() {
         <div className="row">
           <div className="col-sm-12">
             <div className="d-flex justify-content-end mt-5">
+              <button
+                className="student-create me-1"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Back
+              </button>
               <Link to="/create" className="student-create">
                 Create
               </Link>
